@@ -1,0 +1,8 @@
+<h1>Registrations#create</h1>
+<p>Find me in app/views/registrations/create.html.erb</p>
+
+<% if can? :create, User %>
+	welcome
+	<%= current_user.email%>
+<%end%>
+<%= current_user.email%>
