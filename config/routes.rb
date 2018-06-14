@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-
-devise_for :users, controllers:{
+root 'supplies#index'
+  resources :supplies
+  resources :deliveries
+  devise_for :users, controllers:{
   	invitations: "invitations"
   	#registrations: "registrations"
   }

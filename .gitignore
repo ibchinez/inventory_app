@@ -12,8 +12,11 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+!/config/database.yml
 
 /node_modules
 /yarn-error.log
 
+.rspec
+/spec/tmp
 .byebug_history
