@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-root 'supplies#index'
+  get 'homes/index'
+
+  get 'dashboards/index'
+
+  root 'homes#index'
   resources :supplies
   resources :deliveries
   devise_for :users, controllers:{

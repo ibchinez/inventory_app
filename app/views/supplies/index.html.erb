@@ -21,7 +21,6 @@
         <td><%= supply.quantity %></td>
         <td><%= supply.weight %></td>
         <td><%= supply.amount %></td>
-        <td><%= supply.user %></td>
         <td><%= link_to 'Show', supply %></td>
         <td><%= link_to 'Edit', edit_supply_path(supply) %></td>
         <td><%= link_to 'Destroy', supply, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -31,5 +30,55 @@
 </table>
 
 <br>
+ <%= link_to  destroy_user_session_path, method: :delete  do %>
+                             <i class="glyphicon glyphicon-edit"></i>
+                             EDIT
+                        <%end%>
 
 <%= link_to 'New Supply', new_supply_path %>
+
+
+
+
+
+<div class="container">
+    <div class="row col-md-8 col-md-offset-2 custyle">
+    <table class="table table-bordered table-striped custab">
+    <thead>
+          <%= link_to  new_supply_path, :class =>"btn btn-primary btn-xs pull-right" do%>
+             <b>+</b> NEW SUPPLY
+          <%end%>
+          <tr>
+            <th>ID</th>
+            <th >NAME</th>
+            <th>QUANTITY</th>
+            <th>WEIGHT</th>
+            <th>PRICE PER ITEM</th>
+            <th>TOTAL</th>
+            <th class="text-center" colspan="2">Action</th>
+        </tr>
+    </thead>
+          <% @supplies.each do |supply| %>
+            <tr>
+                <td><%= supply.id %></td>
+                <td><%= supply.name %></td>
+                <td><%= supply.quantity %></td>
+                <td><%= supply.weight %></td>
+                <td><%= supply.amount %></td>
+                <td>#1000</td>
+        
+                <td class="text-center">  
+                  <%= link_to  edit_supply_path(supply), :class => "btn btn-danger btn-xs" do%>
+                        <i class="glyphicon glyphicon-edit">EDIT</i>
+                  <%end%>
+                </td>
+                <td class="text-center">  
+                  <%= link_to  supply, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-xs" do%>
+                        <i class="glyphicon glyphicon-trash">DELETE</i>
+                  <%end%>
+                </td>
+            </tr>
+          <%end%>
+    </table>
+    </div>
+</div>
