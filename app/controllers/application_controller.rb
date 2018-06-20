@@ -4,11 +4,17 @@ class ApplicationController < ActionController::Base
   #after_action :add_admin_role, only: [:update], if: :invitations_controller?
 	
 	rescue_from CanCan::AccessDenied do |exception|
-		respond_to do |format|
+		if user_signed_in?
+		respond_to do |format|		
+			if user_signed_in?
 			format.json { head :forbidden, content_type: 'text/html' }
-			format.html{ notice:exception.message}
+
+			format.html{redirect_to dashboards_index_path, notice:exception.message}
 			format.js   { head :forbidden, content_type: 'text/html' }
+			end
 		end
+		end
+
    	end
 
    	def after_sign_in_path_for(resource_or_scope)
@@ -17,6 +23,11 @@ class ApplicationController < ActionController::Base
 
   def after_sign_up_path_for(resource_or_scope)
     	dashboards_index_path
+  end
+
+
+  def after_accept_path_for(resource)
+  	dashboards_index_path
   end
 
    	def after_sign_out_path_for(resource_or_scope)

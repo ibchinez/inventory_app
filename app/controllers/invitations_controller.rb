@@ -1,4 +1,6 @@
 class InvitationsController < Devise::InvitationsController
+	
+	before_action :authenticate_user!
 	before_action :is_super_admin, only: [:create, :new]
 	after_action :add_admin_role, only:[:update]
 

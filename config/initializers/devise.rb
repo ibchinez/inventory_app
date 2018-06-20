@@ -18,7 +18,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender ="no-reply@ucanconcept.com"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -117,16 +117,16 @@ Devise.setup do |config|
   # config.pepper = 'd6855885f18097e081dd70b24c782c6021650ebd38e73dbc5e480d6920b51db921bb93508f7df5d15fddfb59d41996625e818bcd4c2c602a93238f61df98a9cf'
 
   # Send a notification to the original email when the user's email is changed.
-  # config.send_email_changed_notification = false
+   config.send_email_changed_notification = false
 
   # Send a notification email when the user's password is changed.
-  # config.send_password_change_notification = false
+   config.send_password_change_notification = false
 
   # ==> Configuration for :invitable
   # The period the generated invitation token is valid, after
   # this period, the invited resource won't be able to accept the invitation.
   # When invite_for is 0 (the default), the invitation won't expire.
-  # config.invite_for = 2.weeks
+   config.invite_for = 1.weeks
 
   # Number of invitations users can send.
   # - If invitation_limit is nil, there is no limit for invitations, users can
@@ -136,7 +136,7 @@ Devise.setup do |config|
   # You can change invitation_limit column for some users so they can send more
   # or less invitations, even with global invitation_limit = 0
   # Default: nil
-  # config.invitation_limit = 5
+   config.invitation_limit = nil
 
   # The key to be used to check existing users when sending an invitation
   # and the regexp used to test it when validate_on_invite is not set.

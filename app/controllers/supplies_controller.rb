@@ -1,17 +1,22 @@
 class SuppliesController < ApplicationController
-  load_and_authorize_resource
-  before_action :set_supply, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :set_supply, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
+  
   # GET /supplies
   # GET /supplies.json
   def index
-    @supplies = Supply.all
+    if params[:search_item]
+      @supplies = Supply.search_by_title(params[:search_item]).paginate(:page => params[:page]).per_page(10)
+    else
+      @supplies =  Supply.paginate(:page => params[:page]).per_page(1) 
+    end
   end
 
   # GET /supplies/1
   # GET /supplies/1.json
   def show
-  end
+     end
 
   # GET /supplies/new
   def new
@@ -20,6 +25,7 @@ class SuppliesController < ApplicationController
 
   # GET /supplies/1/edit
   def edit
+
   end
 
   # POST /supplies
@@ -65,7 +71,7 @@ class SuppliesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_supply
-      @supply = Supply.find(params[:id])
+      @supply = Supply.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

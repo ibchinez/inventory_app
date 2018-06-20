@@ -43,13 +43,17 @@ end
 gem 'friendly_id', '~> 5.1.0' #make the urls "friendly"
 gem 'cancancan' #authorize access
 gem 'rolify' #assign role to user
+gem 'sendgrid'
+gem 'pg_search'
 
-
+gem 'figaro'
 gem 'devise'
 gem 'devise_invitable'
 gem 'simple_form'
 #gem 'client_side_validations', '~> 4.2.1'
 gem 'bootstrap-sass', '~> 3.2.0'
+gem 'will_paginate-bootstrap'
+#gem 'will_paginate', '~> 3.1.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 
 group :development, :test do

@@ -28,7 +28,7 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
@@ -46,6 +46,22 @@ Rails.application.configure do
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
+
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true 
+  config.action_mailer.default_url_options = { :host => "ucanconcept.com" }
+ 
+config.action_mailer.smtp_settings = {
+  :address => 'smtp.sendgrid.net',
+  :port => 587,
+  :domain => 'ucanconcept.com',
+  :user_name =>  ENV['sendgrid_username'],
+  :password => ENV['sendgrid_password'],
+  :authentication => 'plain',
+  :enable_starttls_auto => true 
+}
+
+
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.

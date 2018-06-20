@@ -6,4 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-	Role.create!(name: 'admin')
+	for x in 1..10 do 
+		Supply.create!(name: "Supply#{x}" , quantity: '200', weight: '50kg',amount: '#200', user_id: 18 )	
+	end
