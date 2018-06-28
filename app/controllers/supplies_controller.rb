@@ -9,7 +9,7 @@ class SuppliesController < ApplicationController
     if params[:search_item]
       @supplies = Supply.search_by_title(params[:search_item]).paginate(:page => params[:page]).per_page(10)
     else
-      @supplies =  Supply.paginate(:page => params[:page]).per_page(1) 
+      @supplies =  Supply.paginate(:page => params[:page]).per_page(10) 
     end
   end
 

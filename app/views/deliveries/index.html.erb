@@ -1,40 +1,50 @@
+<% provide(:title, 'Deliveries')%>
 <%= render "/admin_navbar" %>
 <p id="notice"><%= notice %></p>
-
+<h1 style="text-align: center;"> Deliveries</h1>
 <div class="container">
-    <div class="row col-md-8 col-md-offset-2 custyle">
+  <div class="row col-md-8 col-md-offset-2 custyle">
     <table class="table table-bordered table-striped custab">
-    <thead>
-          <%= link_to  new_delivery_path, :class =>"btn btn-primary btn-xs pull-right" do%>
-             <b>+</b> NEW DELIVERY
-          <%end%>
-          <tr>
-            <th>ID</th>
-            <th >NAME</th>
-            <th>QUANTITY</th>
-            <th>WEIGHT</th>
-            <th class="text-center" colspan="2">Action</th>
+      <thead>
+
+        <%= form_tag deliveries_path, method: :get  do %>
+        <%= text_field_tag 'search_item', params[:search_item], placeholder: "Enter Delivery" %>
+        <%= submit_tag 'Search' %>
+        <%end%>
+        <%= link_to  new_delivery_path, :class =>"btn btn-primary btn-xs pull-right" do%>
+        <b>+</b> NEW DELIVERY
+        <%end%>
+        <tr>
+          <th>S/N</th>
+          <th >NAME</th>
+          <th>QUANTITY</th>
+          <th>WEIGHT</th>
+          <th class="text-center" colspan="2">Action</th>
         </tr>
-    </thead>
-          <% @deliveries.each do |delivery| %>
-            <tr>
-                <td><%= delivery.id %></td>
-                <td><%= delivery.name.upcase %></td>
-                <td><%= delivery.quantity %></td>
-                <td><%= delivery.weight %></td>
+      </thead>
+      <% @deliveries.each do |delivery| %>
+      <tr>
+        <td><%= delivery.id %></td>
+        <td><%= delivery.name.upcase %></td>
+        <td><%= delivery.quantity %></td>
+        <td><%= delivery.weight %></td>
         
-                <td class="text-center">  
-                  <%= link_to  edit_delivery_path(delivery), :class => "btn btn-danger btn-xs" do%>
-                        <i class="glyphicon glyphicon-edit"> EDIT</i>
-                  <%end%>
-                </td>
-                <td class="text-center">  
-                  <%= link_to  delivery, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-xs" do%>
-                        <i class="glyphicon glyphicon-trash"> DELETE</i>
-                  <%end%>
-                </td>
-            </tr>
+        <td class="text-center">  
+          <%= link_to  edit_delivery_path(delivery), :class => "btn btn-danger btn-xs" do%>
+          <i class="glyphicon glyphicon-edit"> EDIT</i>
           <%end%>
+        </td>
+        <td class="text-center">  
+          <%= link_to  delivery, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-xs" do%>
+          <i class="glyphicon glyphicon-trash"> DELETE</i>
+          <%end%>
+        </td>
+      </tr>
+      <%end%>
     </table>
-    </div>
+    
+  <div class="digg_pagination">
+    <%= will_paginate @deliveries, renderer: BootstrapPagination::Rails %>
+  </div>
+  </div> 
 </div>

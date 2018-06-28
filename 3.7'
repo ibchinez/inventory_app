@@ -1,0 +1,2 @@
+ERROR: "bundle show" was called with arguments ["rspec-rails", ",", "~"]
+Usage: "bundle show GEM [OPTIONS]"

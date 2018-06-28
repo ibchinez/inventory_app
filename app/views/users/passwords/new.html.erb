@@ -1,15 +1,28 @@
-<h2>Forgot your password?</h2>
+<% provide(:title, 'Set Password')%>
+<h2 style=" text-align: center; width: 100%">RESET PASSWORD</h2>
+<div id="login" class="container">
+	<div class="row-fluid">
+		<div class="span12">
+			<div class="login well well-small">
+				<div class="center"> 
+					<%= image_tag("logo-no2.png") %>
+				</div>
+				<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+				<div class="control-group">
+					<div class="control-group">
+						<div class="input-prepend">
+							<span class="add-on"><i class="icon-user"></i></span>
+							<%= f.input :email, required: true, autofocus: true %>
+						</div>
+					</div>
+					<div class="control-group">
+						<%= f.button :submit, "Reset Password" , class:"btn btn-primary btn-large btn-block"%>
 
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+					</div>
+					<%= render "users/shared/links" %>
+					<%= link_to "Back", :back %>
+					<%end%>
+				</div><!--/.login-->
+			</div><!--/.span12-->
+		</div><!--/.row-fluid-->
+	</div><!--/.container-->

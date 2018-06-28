@@ -14,10 +14,10 @@
  * 
   *= require_tree .
  *= require_self
-
  */
-
-
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "font-awesome.min";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import 'bootstrap-datetimepicker';

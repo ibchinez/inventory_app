@@ -1,5 +1,16 @@
 class Delivery < ApplicationRecord
-  	extend FriendlyId
+  
+   include PgSearch
+  pg_search_scope :search_by_title, against: [:name],
+  using: {
+  	tsearch: {
+  		prefix: true,
+  		negation: true
+  	}
+  }
+
+
+  extend FriendlyId
   friendly_id :name, use: :slugged
 
 

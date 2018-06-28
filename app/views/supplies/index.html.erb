@@ -1,60 +1,58 @@
+<% provide(:title, 'Supplies')%>
 <%= render "/admin_navbar" %>
 <p id="notice"><%= notice %></p>
 
-<h1>Supplies</h1>
+<h1 style="text-align: center;">Supplies</h1>
 
-<%= form_tag supplies_path, method: :get  do %>
-
-  <%= text_field_tag 'search_item', params[:search_item], placeholder: "Enter Supply" %>
-  <%= submit_tag 'Search' %>
-<% end%>
 
 
 <div class="container">
-    <div class="row col-md-8 col-md-offset-2 custyle">
+  <div class="row col-md-8 col-md-offset-2 custyle">
     <table class="table table-bordered table-striped custab">
-    <thead>
-          <%= link_to  new_supply_path, :class =>"btn btn-primary btn-xs pull-right" do%>
-             <b>+</b> NEW SUPPLY
-          <%end%>
-          <tr>
-            <th>S/N</th>
-            <th >NAME</th>
-            <th>QUANTITY</th>
-            <th>WEIGHT</th>
-            <th>PRICE PER ITEM</th>
-            <th>TOTAL</th>
-            <th class="text-center" colspan="2">Action</th>
+      <thead>
+        <%= form_tag supplies_path, method: :get  do %>
+<%= text_field_tag 'search_item', params[:search_item], placeholder: "Enter Supply" %>
+<%= submit_tag 'Search' %>
+<% end%>
+        <% if current_user.has_role? :super_admin %>
+        <%= link_to  new_supply_path, :class =>"btn btn-primary btn-xs pull-right" do%>
+        <b>+</b> NEW SUPPLY
+        <%end%>
+        <%end%>
+        <tr>
+          <th>S/N</th>
+          <th >NAME</th>
+          <th>QUANTITY</th>
+          <th>WEIGHT</th>
+          <th>PRICE PER ITEM</th>
+          <th>TOTAL</th>
+          <th class="text-center" colspan="2">Action</th>
         </tr>
-    </thead>
-          <% @supplies.each do |supply| %>
-            <tr>
-                <td><%= supply.id %></td>
-                <td><%= supply.name %></td>
-                <td><%= supply.quantity %></td>
-                <td><%= supply.weight %></td>
-                <td><%= supply.amount %></td>
-                <td>#1000</td>
+      </thead>
+      <% @supplies.each do |supply| %>
+      <tr>
+        <td><%= supply.id %></td>
+        <td><%= supply.name %></td>
+        <td><%= supply.quantity %></td>
+        <td><%= supply.weight %></td>
+        <td><%= supply.amount %></td>
+        <td>#1000</td>
         
-                <td class="text-center">  
-                  <%= link_to  edit_supply_path(supply), :class => "btn btn-danger btn-xs" do%>
-                        <i class="glyphicon glyphicon-edit"> EDIT</i>
-                  <%end%>
-                </td>
-                <td class="text-center">  
-                  <%= link_to  supply, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-xs" do%>
-                        <i class="glyphicon glyphicon-trash"> DELETE</i>
-                  <%end%>
-                </td>
-            </tr>
+        <td class="text-center">  
+          <%= link_to  edit_supply_path(supply), :class => "btn btn-danger btn-xs" do%>
+          <i class="glyphicon glyphicon-edit"> EDIT</i>
           <%end%>
+        </td>
+        <td class="text-center">  
+          <%= link_to  supply, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-xs" do%>
+          <i class="glyphicon glyphicon-trash"> DELETE</i>
+          <%end%>
+        </td>
+      </tr>
+      <%end%>
     </table>
-    
     <div class="digg_pagination">
-    <div class="page_info">
-      <%= page_entries_info @supplies %>
+      <%= will_paginate @supplies, renderer: BootstrapPagination::Rails %>
     </div>
-    <%= will_paginate @supplies %>
   </div>
-    </div>
 </div>

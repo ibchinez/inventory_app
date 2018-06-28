@@ -3,7 +3,13 @@ class MessagesController < ApplicationController
  def create
 	@message = Message.create(message_params) 	
 	@message.save
-	redirect_to root_url
+	respond_to do |format|
+          format.js{}
+       end
+  	else 
+  		respond_to do |format|
+          format.js{}
+        end
  end
 
  private

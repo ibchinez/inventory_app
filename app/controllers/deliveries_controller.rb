@@ -1,17 +1,22 @@
 class DeliveriesController < ApplicationController
-  load_and_authorize_resource
   before_action :set_delivery, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  load_and_authorize_resource
+  
   # GET /deliveries
   # GET /deliveries.json
   def index
-    @deliveries = Delivery.all
+    if params[:search_item]
+      @deliveries = Delivery.search_by_title(params[:search_item]).paginate(:page => params[:page]).per_page(10)
+    else
+      @deliveries =  Delivery.paginate(:page => params[:page]).per_page(10) 
+    end
   end
 
   # GET /deliveries/1
   # GET /deliveries/1.json
   def show
-    
+      
   end
 
   # GET /deliveries/new
@@ -66,7 +71,7 @@ class DeliveriesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_delivery
-      @delivery = Delivery.find(params[:id])
+      @delivery = Delivery.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

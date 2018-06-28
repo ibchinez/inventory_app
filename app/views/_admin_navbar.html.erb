@@ -9,15 +9,24 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="http://disputebills.com"><img src="https://res.cloudinary.com/candidbusiness/image/upload/4/dispute-bills-chicago.png" alt="Dispute Bills">
-        </a>
+        <% if user_signed_in? %>
+          <%= link_to  dashboards_index_path , class:"navbar-brand" do%>
+          <%= image_tag("logo-no2.png", style: "width: 140px; margin-top: -26px;", class:"img-responsive")%>
+          <%end%>
+        <%else%>
+        <%= link_to  root_path , class:"navbar-brand" do%>
+          <%= image_tag("logo-no2.png", style: "width: 140px; margin-top: -26px;", class:"img-responsive")%>
+          <%end%>
+        <%end%>
+
       </div>
       <div id="navbar2" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
           <li><%= link_to "SUPPLIES" , supplies_path %></li>
           <li><%= link_to "DELIVERIES" , deliveries_path%></li>
           <%if current_user.has_role? :super_admin%>
-          <li><%= link_to "NEW ADMIN" , new_user_invitation_path%></li>          
+          <li><%= link_to "NEW ADMIN" , new_user_invitation_path%></li> 
+          <li><%= link_to "EDIT ACCOUNT" , edit_user_registration_path%></li>          
           <%end%>
           <li>
             <%= link_to  destroy_user_session_path, method: :delete  do %>
@@ -25,18 +34,6 @@
                     LOGOUT(<%= current_user.email%>)
              <%end%>
                     </li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li class="divider"></li>
-              <li class="dropdown-header">Nav header</li>
-              <li><a href="#">Separated link</a></li>
-              <li><a href="#">One more separated link</a></li>
-            </ul>
-          </li>
         </ul>
       </div>
       <!--/.nav-collapse -->

@@ -4,3 +4,6 @@
  Disallow: /users
  Disallow: /dashboard
  Allow: /
+ Allow: /homes/index
+
+ Sitemap: http://www.ucanconcept.com/sitemap.xml.gz

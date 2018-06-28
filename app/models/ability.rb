@@ -8,6 +8,7 @@ class Ability
       if user.has_role? :super_admin
         can :read, :all
         can :invite, User
+        can :manage, User
         cannot :create, Delivery
         cannot :update, Delivery
         cannot :destroy, Delivery

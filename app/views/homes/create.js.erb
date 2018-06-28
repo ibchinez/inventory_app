@@ -1,0 +1,10 @@
+
+<% if @message.errors.count > 0 %>
+
+$(".error").html("<%= (escape_javascript(render 'error')) %>")
+
+<%else%>
+
+	$(".error").html("<%= (escape_javascript(render 'success')) %>")
+					
+<%end%>

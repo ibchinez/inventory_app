@@ -7,5 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 	for x in 1..10 do 
-		Supply.create!(name: "Supply#{x}" , quantity: '200', weight: '50kg',amount: '#200', user_id: 18 )	
+		Delivery.create!(name: "Delivery#{x}" , quantity: '200', weight: '50kg' ,user_id: 20 )	
+		 
 	end
