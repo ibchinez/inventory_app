@@ -25,10 +25,10 @@ Rails.application.configure do
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
-  # config.assets.css_compressor = :sass
+   #config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = true
+    config.assets.compile = false
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
@@ -54,7 +54,7 @@ Rails.application.configure do
 config.action_mailer.smtp_settings = {
   :address => 'smtp.sendgrid.net',
   :port => 587,
-  :domain => 'ucanconcept.com',
+  :domain => 'heroku.com',
   :user_name =>  ENV['sendgrid_username'],
   :password => ENV['sendgrid_password'],
   :authentication => 'plain',

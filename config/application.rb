@@ -27,7 +27,7 @@ module Inventory
      config.exceptions_app = self.routes
 
      
-
+     config.assets.initialize_on_precompile = false
 
     # Don't generate system test files.
     config.generators.system_tests = nil
