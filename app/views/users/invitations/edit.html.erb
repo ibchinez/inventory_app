@@ -2,7 +2,12 @@
 <h2><%= t 'devise.invitations.edit.header' %></h2>
 
 <%= simple_form_for resource, as: resource_name, url: invitation_path(resource_name), html: { method: :post} do |f| %>
-
+	<%if alert.present? || notice.present?%>
+        <div class="alert alert-danger">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <%= alert %> <%= notice %>
+        </div>
+        <%end%>
   <div class="control-group">
             <div class="input-prepend">
               <span class="add-on"><i class="icon-user"></i></span>
@@ -13,14 +18,14 @@
           <div class="control-group">
             <div class="input-prepend">
               <span class="add-on"><i class="icon-user"></i></span>
-				<%= f.input :password %>
+				<%= f.input :password , required:true %>
   			<% end -%>
             </div>
           </div>
           <div class="control-group">
             <div class="input-prepend">
               <span class="add-on"><i class="icon-user"></i></span>
-				<%= f.input :password_confirmation %>
+				<%= f.input :password_confirmation , required:true %>
 			<% end -%>
             </div>
           </div>

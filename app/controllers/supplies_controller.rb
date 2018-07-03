@@ -16,7 +16,7 @@ class SuppliesController < ApplicationController
   # GET /supplies/1
   # GET /supplies/1.json
   def show
-     end
+  end
 
   # GET /supplies/new
   def new
@@ -78,4 +78,4 @@ class SuppliesController < ApplicationController
     def supply_params
       params.require(:supply).permit(:name, :quantity, :weight, :amount, :user_id)
     end
-end
+  end

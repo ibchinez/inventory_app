@@ -16,7 +16,7 @@ class DeliveriesController < ApplicationController
   # GET /deliveries/1
   # GET /deliveries/1.json
   def show
-      
+    
   end
 
   # GET /deliveries/new
@@ -78,4 +78,4 @@ class DeliveriesController < ApplicationController
     def delivery_params
       params.require(:delivery).permit(:name, :quantity, :weight, :user_id)
     end
-end
+  end

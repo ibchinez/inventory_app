@@ -8,6 +8,12 @@
 					<%= image_tag("logo-no2.png") %>
 				</div>
 				<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+				<%if alert.present? || notice.present?%>
+        <div class="alert alert-danger">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <%= alert %> <%= notice %>
+          <%end%>
+        </div>
 				<div class="control-group">
 					<div class="control-group">
 						<div class="input-prepend">

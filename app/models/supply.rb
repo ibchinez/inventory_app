@@ -12,12 +12,12 @@ class Supply < ApplicationRecord
   belongs_to :user
   resourcify
 
-  extend FriendlyId
-  friendly_id :name, use: :slugged
+ # extend FriendlyId
+  #friendly_id :name, use: :slugged
 
   #self.per_page = 10
   #WillPaginate.per_page = 10
-  	validates :name, presence:true
+  validates :name, presence:true
 	validates :quantity, presence:true
 	validates :weight, presence:true
 	validates :amount, presence:true

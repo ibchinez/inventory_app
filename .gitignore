@@ -18,7 +18,7 @@
 /yarn-error.log
 
 .rspec
-/spec/tmp
+/spec/*
 .byebug_history
 
 # Ignore application configuration

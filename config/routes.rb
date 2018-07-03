@@ -21,8 +21,9 @@ Rails.application.routes.draw do
     get 'admin', to: 'devise/sessions#new'
 
       post 'create' => 'homes#create'
-      get "/404", :to => "errors#not_found"
-      get "/422", :to => "errors#unacceptable"
-      get "/500", :to => "errors#internal_error"
+
+      match "/404", :to => "errors#not_found", :via => :all
+      match "/422", :to => "errors#unacceptable", :via => :all
+      match "/500", :to => "errors#internal_error", :via => :all
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

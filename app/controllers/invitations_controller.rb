@@ -9,9 +9,9 @@ class InvitationsController < Devise::InvitationsController
   	current_user.add_role(:admin)
   end
 
-   def is_super_admin
-   		if cannot?( :invite, User )
-       raise CanCan::AccessDenied
+  def is_super_admin
+   if cannot?( :invite, User )
+     raise CanCan::AccessDenied
    end
-end
+ end
 end
