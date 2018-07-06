@@ -14,4 +14,8 @@ class InvitationsController < Devise::InvitationsController
      raise CanCan::AccessDenied
    end
  end
+
+ def after_invite_path_for(resource)
+  dashboards_index_path
+ end
 end

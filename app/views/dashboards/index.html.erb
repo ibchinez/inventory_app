@@ -1,15 +1,19 @@
 <% provide(:title, 'Dashboard')%>
 <div class="container">
   <%= render "/admin_navbar" %>
-
   <div id="messages-table" class="container">
     <div  id="message-table" class=" col-sm-8 col-md-6 col-lg-8">
       <div class="table-wrapper">
+         <%if alert.present? || notice.present?%>
+        <div class="alert alert-danger">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <%= alert %> <%= notice %>
+        </div>
+        <%end%>
         <table class="table" >
           <thead>
            <tr class="table-row">
-            <td>
-             
+            <td>             
               <div class="ribbon left_ribbon">
                 <h3>MESSAGES</h3>
               </div>
