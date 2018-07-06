@@ -14,8 +14,8 @@
         <%= text_field_tag 'search_item', params[:search_item], placeholder: "Enter Supply" %>
         <%= submit_tag 'Search' %>
         <% end%>
-        <% if current_user.has_role? :super_admin %>
-          <div><span></span>
+        <% if current_user.has_role? :admin %>
+          <div>
         <%= link_to  new_supply_path, :class =>"btn btn-primary btn-xs pull-right" do%>
         <b>+</b> NEW SUPPLY
         <%end%>

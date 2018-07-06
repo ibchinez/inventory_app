@@ -35,10 +35,10 @@ class SuppliesController < ApplicationController
 
     respond_to do |format|
       if @supply.save
-        format.html { redirect_to @supply, notice: 'Supply was successfully created.' }
+        format.html { redirect_to dashboards_index_path, notice: 'Supply was successfully created.' }
         format.json { render :show, status: :created, location: @supply }
       else
-        format.html { render :new }
+        format.html { render 'dashboards/index' }
         format.json { render json: @supply.errors, status: :unprocessable_entity }
       end
     end
@@ -49,7 +49,7 @@ class SuppliesController < ApplicationController
   def update
     respond_to do |format|
       if @supply.update(supply_params)
-        format.html { redirect_to @supply, notice: 'Supply was successfully updated.' }
+        format.html { redirect_to dashboards_index_path, notice: 'Supply was successfully updated.' }
         format.json { render :show, status: :ok, location: @supply }
       else
         format.html { render :edit }
@@ -63,7 +63,7 @@ class SuppliesController < ApplicationController
   def destroy
     @supply.destroy
     respond_to do |format|
-      format.html { redirect_to supplies_url, notice: 'Supply was successfully destroyed.' }
+      format.html { redirect_to dashboards_index_path, notice: 'Supply was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

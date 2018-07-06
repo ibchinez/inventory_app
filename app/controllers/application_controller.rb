@@ -37,8 +37,10 @@ class ApplicationController < ActionController::Base
      @number_of_users = User.all.count
      if @number_of_users == 1 
       current_user.add_role :super_admin  		
+     else
+      current_user.add_role :admin
+     end
     end
-  end
 
   # def add_admin_role
   # 	current_user.add_role(:admin)

@@ -35,10 +35,10 @@ class DeliveriesController < ApplicationController
 
     respond_to do |format|
       if @delivery.save
-        format.html { redirect_to @delivery, notice: 'Delivery was successfully created.' }
+        format.html { redirect_to dashboards_index_path, notice: 'Delivery was successfully created.' }
         format.json { render :show, status: :created, location: @delivery }
       else
-        format.html { render :new }
+        format.html { render 'dashboards/index', notice: 'Error creating delivery,please try again ' }
         format.json { render json: @delivery.errors, status: :unprocessable_entity }
       end
     end
@@ -49,10 +49,10 @@ class DeliveriesController < ApplicationController
   def update
     respond_to do |format|
       if @delivery.update(delivery_params)
-        format.html { redirect_to @delivery, notice: 'Delivery was successfully updated.' }
+        format.html { redirect_to dashboards_index_path, notice: 'Delivery was successfully updated.' }
         format.json { render :show, status: :ok, location: @delivery }
       else
-        format.html { render :edit }
+        format.html { render 'dashboards/index' , notice: 'Error creating delivery,please try again'}
         format.json { render json: @delivery.errors, status: :unprocessable_entity }
       end
     end
@@ -63,7 +63,7 @@ class DeliveriesController < ApplicationController
   def destroy
     @delivery.destroy
     respond_to do |format|
-      format.html { redirect_to deliveries_url, notice: 'Delivery was successfully destroyed.' }
+      format.html { redirect_to dashboards_index_path, notice: 'Delivery was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
