@@ -15,7 +15,8 @@ Rails.application.routes.draw do
   },
 
   controllers:{
-  	invitations: "invitations"
+  	invitations: "invitations",
+    registrations: "registrations"
   }
 
     get 'admin', to: 'devise/sessions#new'

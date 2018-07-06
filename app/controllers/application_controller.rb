@@ -32,7 +32,11 @@ class ApplicationController < ActionController::Base
    new_user_session_path
  end
 
-   	#assign role to first user as super_admin
+def after_update_path_for(resource_or_scope)
+      dashboards_index_path
+end
+
+ 	#assign role to first user as super_admin
     def assign_role
      @number_of_users = User.all.count
      if @number_of_users == 1 
