@@ -13,7 +13,6 @@ class Message < ApplicationRecord
 
 	validates :name,presence:true
 	validates :email,presence:true
-
 	validates :mobile_no, presence: true, numericality: true
 	validates :mobile_no, length: {minimum:11} ,if: "mobile_no.present?"
 	validates :mobile_no, length: {maximum:14} ,if: "mobile_no.present?"

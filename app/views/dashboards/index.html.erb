@@ -1,52 +1,50 @@
 <% provide(:title, 'Dashboard')%>
 <div class="container">
-<%= render "/admin_navbar" %>
+  <%= render "/admin_navbar" %>
 
-<div id="messages-table" class="container">
-		<div  id="message-table" class=" col-sm-8 col-md-6 col-lg-8">
-			                   <div class="table-wrapper">
-                  <table class="table" >
-                    <thead>
-                       <tr class="table-row">
-                        <td>
-                        	
-                      <div class="ribbon left_ribbon">
-                        <h3>MESSAGES</h3>
-                      </div>
-                    </td>
-                    <td colspan="3" style="text-align: right; padding-top: 20px;">
-                    	<div>
-                    		<%= form_tag dashboards_index_path, method: :get  do %>
-        			<%= text_field_tag 'search', params[:search], placeholder: "e.g Ben Ngozi" %>
-        				<%= submit_tag 'Search'%>
-   				     <% end%>
-   
-                    	</div>
-                    </td>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <% @messages.each do |message|%>
-                        <tr class="table-row">
-                            <td class="table-img">
-                               <%= message.name %><br><%= message.mobile_no %>
-                            </td>
-                            <td class="table-text">
-                              <h6> <%= message.email%></h6>
-                                <p><%=message.message%></p>
-                            </td>                         
-                            <td class="march">
-                              <h6><%= message.created_at.strftime('%d %b %Y')%></h6> 
-                            </td>
-                        </tr>                                                                     
-                      <%end%>
-                    </tbody>
-                </table>
-            </div>
+  <div id="messages-table" class="container">
+    <div  id="message-table" class=" col-sm-8 col-md-6 col-lg-8">
+      <div class="table-wrapper">
+        <table class="table" >
+          <thead>
+           <tr class="table-row">
+            <td>
+             
+              <div class="ribbon left_ribbon">
+                <h3>MESSAGES</h3>
               </div>
-              <div class="digg_pagination">
-    			<%= will_paginate @messages, renderer: BootstrapPagination::Rails %>
-  			  </div>
-          </div>
-           
+            </td>
+            <td colspan="3" style="text-align: right; padding-top: 20px;">
+             <div>
+              <%= form_tag dashboards_index_path, method: :get  do %>
+              <%= text_field_tag 'search', params[:search], placeholder: "e.g Ben Ngozi" %>
+              <%= submit_tag 'Search'%>
+              <% end%>
+            </div>
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @messages.each do |message|%>
+        <tr class="table-row">
+          <td class="table-img">
+           <%= message.name %><br><%= message.mobile_no %>
+         </td>
+         <td class="table-text">
+          <h6> <%= message.email%></h6>
+          <p><%=message.message%></p>
+        </td>                         
+        <td class="march">
+          <h6><%= message.created_at.strftime('%d %b %Y')%></h6> 
+        </td>
+      </tr>                                                                     
+      <%end%>
+    </tbody>
+  </table>
+</div>
+</div>
+<div class="digg_pagination">
+ <%= will_paginate @messages, renderer: BootstrapPagination::Rails %>
+</div>
+</div>           
 </div>
