@@ -53,7 +53,6 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { :host => "ucanconept.herokuapp.com" }
  
 config.action_mailer.smtp_settings = {
-
     :address        => "smtp.sendgrid.net",
     :port           => "587",
     :authentication => :plain,
@@ -61,7 +60,6 @@ config.action_mailer.smtp_settings = {
     :password       =>  ENV['SENDGRID_PASSWORD'] ,
     :domain         =>  'heroku.com' ,
     :enable_starttls_auto => true
-  
   }
 
   config.action_mailer.delivery_method = :smtp

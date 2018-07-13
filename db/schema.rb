@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180620081705) do
+ActiveRecord::Schema.define(version: 20180712212340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,29 @@ ActiveRecord::Schema.define(version: 20180620081705) do
     t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "landing_title"
+    t.string "landing_text"
+    t.string "service_text_string"
+    t.string "scrub_title"
+    t.string "scrub_text"
+    t.string "cet_title"
+    t.string "cet_text"
+    t.string "tane_title"
+    t.string "tane_text"
+    t.string "testimony_text"
+    t.string "testimony_sender"
+    t.string "address1"
+    t.string "address2"
+    t.string "phone1"
+    t.string "phone2"
+    t.string "email"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -115,5 +138,6 @@ ActiveRecord::Schema.define(version: 20180620081705) do
   end
 
   add_foreign_key "deliveries", "users"
+  add_foreign_key "posts", "users"
   add_foreign_key "supplies", "users"
 end

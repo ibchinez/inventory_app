@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Landing title</th>
+      <th>Landing text</th>
+      <th>Service text string</th>
+      <th>Scrub title</th>
+      <th>Scrub text</th>
+      <th>Cet title</th>
+      <th>Cet text</th>
+      <th>Tane title</th>
+      <th>Tane text</th>
+      <th>Testimony text</th>
+      <th>Testimony sender</th>
+      <th>Address1</th>
+      <th>Address2</th>
+      <th>Phone1</th>
+      <th>Phone2</th>
+      <th>Email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.landing_title %></td>
+        <td><%= post.landing_text %></td>
+        <td><%= post.service_text_string %></td>
+        <td><%= post.scrub_title %></td>
+        <td><%= post.scrub_text %></td>
+        <td><%= post.cet_title %></td>
+        <td><%= post.cet_text %></td>
+        <td><%= post.tane_title %></td>
+        <td><%= post.tane_text %></td>
+        <td><%= post.testimony_text %></td>
+        <td><%= post.testimony_sender %></td>
+        <td><%= post.address1 %></td>
+        <td><%= post.address2 %></td>
+        <td><%= post.phone1 %></td>
+        <td><%= post.phone2 %></td>
+        <td><%= post.email %></td>
+        <td><%= link_to 'Show', post %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Post', new_post_path %>

@@ -1,0 +1,89 @@
+<% provide(:title, 'Posts')%>
+<%= render "/admin_navbar" %>
+<div class="container">
+<h1>All Post</h1>
+<p id="notice" class="text-success" style="text-transform: uppercase;"><b><%= notice %></b></p>
+
+<p>
+  <strong>Landing title:</strong>
+  <%= @post.landing_title %>
+</p>
+
+<p>
+  <strong>Landing text:</strong>
+  <%= @post.landing_text %>
+</p>
+
+<p>
+  <strong>Service text string:</strong>
+  <%= @post.service_text_string %>
+</p>
+
+<p>
+  <strong>Scrub title:</strong>
+  <%= @post.scrub_title %>
+</p>
+
+<p>
+  <strong>Scrub text:</strong>
+  <%= @post.scrub_text %>
+</p>
+
+<p>
+  <strong>Cet title:</strong>
+  <%= @post.cet_title %>
+</p>
+
+<p>
+  <strong>Cet text:</strong>
+  <%= @post.cet_text %>
+</p>
+
+<p>
+  <strong>Tane title:</strong>
+  <%= @post.tane_title %>
+</p>
+
+<p>
+  <strong>Tane text:</strong>
+  <%= @post.tane_text %>
+</p>
+
+<p>
+  <strong>Testimony text:</strong>
+  <%= @post.testimony_text %>
+</p>
+
+<p>
+  <strong>Testimony sender:</strong>
+  <%= @post.testimony_sender %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @post.address1 %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @post.address2 %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @post.phone1 %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @post.phone2 %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @post.email %>
+</p>
+
+<%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary btn-sm' %> |
+<%= link_to 'Back', posts_path , class: 'btn btn-primary btn-sm'%>
+</div>

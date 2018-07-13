@@ -51,6 +51,7 @@ GEM
       sass (~> 3.2)
     bootstrap3-datetimepicker-rails (4.17.47)
       momentjs-rails (>= 2.8.1)
+    brakeman (4.3.1)
     builder (3.2.3)
     byebug (10.0.2)
     cancancan (2.2.0)
@@ -282,6 +283,7 @@ DEPENDENCIES
   better_errors
   bootstrap-sass (~> 3.2.0)
   bootstrap3-datetimepicker-rails (~> 4.17.37)
+  brakeman
   byebug
   cancancan
   capybara (~> 2.5)

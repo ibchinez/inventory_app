@@ -32,9 +32,6 @@ class ApplicationController < ActionController::Base
    new_user_session_path
  end
 
-def after_update_path_for(resource_or_scope)
-      dashboards_index_path
-end
 
  	#assign role to first user as super_admin
     def assign_role

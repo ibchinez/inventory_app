@@ -23,6 +23,9 @@
       <div id="navbar2" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
           <li><%= link_to "SUPPLIES" , supplies_path %></li>
+          <% if current_user.has_role? :admin %>
+          <li><%= link_to "EDIT POSTS" , post_path(1) %></li>
+          <%end%>
           <li><%= link_to "DELIVERIES" , deliveries_path%></li>
           <li><%= link_to "EDIT ACCOUNT" , edit_user_registration_path%></li>
           <li>

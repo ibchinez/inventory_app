@@ -49,8 +49,8 @@ meta og:
               <%= image_tag("logo-white-text.png", class: "img-responsive")%>
             </div>
             <div class="banner-text text-center">
-              <h1 class="white">quality product at your door!!</h1>
-              <p>We are bent on serving you better with these indomitable range of products <br>formulated in collaboration with Pharmarama International Limited <br> a UK based pharmaceutical industry. </p>
+              <h1 class="white"><%= @post.landing_title.html_safe %></h1>
+              <p><%= @post.landing_text.html_safe %> </p>
               <a href="#contact" class="btn btn-appoint">Get in touch</a>
             </div>
             <div class="overlay-detail text-center">
@@ -69,27 +69,27 @@ meta og:
         <div class="col-md-4 col-sm-4">
           <h2 class="ser-title">Our Service</h2>
           <hr class="botm-line">
-          <p>There is no denying the fact that the war against infection need to be fought from all frontiers, no wonder UCAN range of disinfectants - UCAN-SCRUB, UCAN-TANE, and UCAN-CET. These disinfectants are clinically formulated with active ingredients sourced from reputable companies that will aim to tackle wide range of bacteria, yeasts, dermatophyte fungi and lipophilic viruses with an effect that can last up to 6 hours in some cases.</p>
+          <p><%= @post.service_text_string.html_safe %></p>
         </div>
         <div class="col-md-4 col-sm-4">
           <div class="service-info">
             <div class="icon-info">
-              <h4 class="ser-items">Ucan-Scrub</h4>
-              <p>This preparation contains chlorhexidine gluconate in the form of an alcoholic solution. it is effective against a wide range of bacteria, yeasts, some fungi and viruses.</p>              
+              <h4 class="ser-items"><%= @post.scrub_title.html_safe %></h4>
+              <p><%= @post.scrub_text.html_safe %></p>              
             </div>
           </div>
           <div class="service-info">
             <div class="icon-info">
-              <h4 class="ser-items">Ucan-Tane</h4>
-              <p> This is an Antimicrobial disinfectant used for Broad Spectrum Antiseptic, particularly effective against Bacteria and Fungi. </p>
+              <h4 class="ser-items"><%= @post.tane_title.html_safe %></h4>
+              <p> <%= @post.tane_text.html_safe %> </p>
             </div>
           </div>
         </div>
         <div class="col-md-4 col-sm-4">
           <div class="service-info">
             <div class="icon-info">
-              <h4 class="ser-items">Ucan-Cet</h4>
-              <p>Used in antiseptic treatment of wounds and burns Swabbing in obstetrics, gynaecology and urology. Cleansing/disinfectant soak for used metal instruments.</p>
+              <h4 class="ser-items"><%= @post.cet_title.html_safe %></h4>
+              <p><%= @post.cet_text.html_safe %></p>
             </div>
           </div>
           
@@ -115,8 +115,8 @@ meta og:
           <h2 class="section-title white lg-line">« A few words<br> about us »</h2>
         </div>
         <div id="about-text" class="col-md-4 col-sm-5">
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a typek
-          <p class="text-right text-primary"><i>— Dr D.C. Chisom</i></p>
+          <%= @post.testimony_text.html_safe %>
+          <p class="text-right text-primary"><i>— <%= @post.testimony_sender.html_safe %></i></p>
         </div>
         <div class="col-md-2"></div>
       </div>
@@ -136,12 +136,12 @@ meta og:
         <div class="col-md-4 col-sm-4">
           <h3>Contact Info</h3>
           <div class="space"></div>
-          <p><i class="fa fa-map-marker fa-fw pull-left fa-2x"></i>15 Chief Ben Iwule Street<br> 
-          Peace Estate, Iba, Ojo LGA,Lagos.</p>
+          <p><i class="fa fa-map-marker fa-fw pull-left fa-2x"></i><%= @post.address1.html_safe %><br> 
+          <%= @post.address2.html_safe %></p>
           <div class="space"></div>
-          <p><i class="fa fa-envelope fa-fw pull-left fa-2x"></i>info@ucanconcept.com</p>
+          <p><i class="fa fa-envelope fa-fw pull-left fa-2x"></i><%= @post.email %></p>
           <div class="space"></div>
-          <p><i class="fa fa-phone fa-fw pull-left fa-2x"></i>08188409499 <br> 080359585451</p>
+          <p><i class="fa fa-phone fa-fw pull-left fa-2x"></i><%= @post.phone1%> <br><%= @post.phone2%></p>
         </div>
         <div class="col-md-8 col-sm-8 marb20">
           <div class="contact-info">

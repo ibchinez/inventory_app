@@ -1,0 +1,30 @@
+<%= simple_form_for(@post) do |f| %>
+  <%= f.error_notification %>
+    <% @post.errors.full_messages.each do |message| %>
+      <ol>
+        <li> <%= message%></li>
+      </ol>
+  <%end%>
+  <div class="form-inputs">
+    <%= f.input :landing_title %>
+    <%= f.input :landing_text %>
+    <%= f.input :service_text_string %>
+    <%= f.input :scrub_title %>
+    <%= f.input :scrub_text %>
+    <%= f.input :cet_title %>
+    <%= f.input :cet_text %>
+    <%= f.input :tane_title %>
+    <%= f.input :tane_text %>
+    <%= f.input :testimony_text %>
+    <%= f.input :testimony_sender %>
+    <%= f.input :address1 %>
+    <%= f.input :address2 %>
+    <%= f.input :phone1 %>
+    <%= f.input :phone2 %>
+    <%= f.input :email %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

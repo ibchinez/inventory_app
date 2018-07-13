@@ -9,19 +9,18 @@ class Ability
         can :read, :all
         can :invite, User
         can :manage, User
-        cannot :create, Delivery
-        cannot :update, Delivery
-        cannot :destroy, Delivery
-        cannot :create, Supply
-        cannot :update, Supply
-        cannot :destroy, Supply
-      elsif user.has_role? :admin
+        can :manage, Post
+        can :manage, Delivery
+        can :manage, Supply
+        
+        elsif user.has_role? :admin
         can :manage, Delivery
         can :manage, Supply
         cannot :invite, User
+        cannot :manage, Post
         #can :write, :all
       else
-        cannot :manage, User
+       # cannot :manage, User
         cannot :manage, Delivery
         cannot :manage, Supply
         cannot :create,  User

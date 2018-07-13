@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :posts
   get 'homes/index', to: 'homes#index', as: :'/'
 
   get 'dashboards/index'

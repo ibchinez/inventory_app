@@ -63,7 +63,7 @@ class SuppliesController < ApplicationController
   def destroy
     @supply.destroy
     respond_to do |format|
-      format.html { redirect_to dashboards_index_path, notice: 'Supply was successfully destroyed.' }
+      format.html { redirect_to dashboards_index_path, notice: 'Supply was successfully deleted.' }
       format.json { head :no_content }
     end
   end
