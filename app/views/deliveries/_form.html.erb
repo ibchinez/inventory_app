@@ -3,13 +3,21 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
+    <%= f.input :inventory_no %>
+    <%= f.input :supplier_name %>
+    <%= f.input :product_name %>
+     <%= f.input :description %>
     <%= f.input :quantity %>
-    <%= f.input :weight %>
+    <%= f.input :batch_no %>     
+    <%= f.input :manufacture_date %>
+     <%= f.input :expiry_date %>
+    <%= f.input :arrival_date %>
+    <%= f.input :receipient %>
+  	<%= f.input :remark %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+     <%= f.button :submit, "SUBMIT" ,class: "btn btn-primary" %>
   </div>
 <% end %>
 </div>

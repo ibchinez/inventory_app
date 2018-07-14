@@ -35,10 +35,10 @@ class SuppliesController < ApplicationController
 
     respond_to do |format|
       if @supply.save
-        format.html { redirect_to dashboards_index_path, notice: 'Supply was successfully created.' }
+        format.html { redirect_to dashboards_index_path, notice: 'Goods was successfully created.' }
         format.json { render :show, status: :created, location: @supply }
       else
-        format.html { render 'dashboards/index' }
+        format.html { render :new }
         format.json { render json: @supply.errors, status: :unprocessable_entity }
       end
     end
@@ -49,7 +49,7 @@ class SuppliesController < ApplicationController
   def update
     respond_to do |format|
       if @supply.update(supply_params)
-        format.html { redirect_to dashboards_index_path, notice: 'Supply was successfully updated.' }
+        format.html { redirect_to supplies_path, notice: 'Record was successfully updated.' }
         format.json { render :show, status: :ok, location: @supply }
       else
         format.html { render :edit }
@@ -63,7 +63,7 @@ class SuppliesController < ApplicationController
   def destroy
     @supply.destroy
     respond_to do |format|
-      format.html { redirect_to dashboards_index_path, notice: 'Supply was successfully deleted.' }
+      format.html { redirect_to supplies_path, notice: 'Record was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -76,6 +76,7 @@ class SuppliesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def supply_params
-      params.require(:supply).permit(:name, :quantity, :weight, :amount, :user_id)
+      params.require(:supply).permit(:customer_name, :quantity, :description, :price_per_unit,
+       :batch_no, :manufacture_date, :expiry_date, :purchase_date, :pack_size, :remark, :user_id)
     end
   end

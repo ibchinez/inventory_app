@@ -8,16 +8,19 @@ class Ability
       if user.has_role? :super_admin
         can :read, :all
         can :invite, User
+        can :manage, Stock
         can :manage, User
         can :manage, Post
         can :manage, Delivery
         can :manage, Supply
-        
+
         elsif user.has_role? :admin
         can :manage, Delivery
         can :manage, Supply
+        can :manage, Stock
         cannot :invite, User
         cannot :manage, Post
+
         #can :write, :all
       else
        # cannot :manage, User

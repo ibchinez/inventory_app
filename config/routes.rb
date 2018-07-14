@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :stocks
   resources :posts
   get 'homes/index', to: 'homes#index', as: :'/'
 
@@ -7,8 +8,8 @@ Rails.application.routes.draw do
 
   resources :messages, only:[:create]
   root 'homes#index'
-  resources :supplies
-  resources :deliveries
+  resources :supplies, path: 'outwards'
+  resources :deliveries, path: 'inwards'
   devise_for :users, path: '', 
 
   path_names:{

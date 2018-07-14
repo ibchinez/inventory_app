@@ -1,34 +1,50 @@
-<% provide(:title, 'Deliveries')%>
+<% provide(:title, 'Inward Goods')%>
 <%= render "/admin_navbar" %>
-<p id="notice"><%= notice %></p>
-<h1 style="text-align: center;"> Deliveries</h1>
-<div class="container">
-  <div class="row col-md-8 col-md-offset-2 custyle">
+
+<h1 style="text-align: center;"> Inward Goods</h1>
+<div class="container-fluid">
+  <div class="row col-md-12  custyle">
+    <p id="notice" style = "text-transform: uppercase; font-weight: bolder;"><%= notice %></p>
     <table class="table table-bordered table-striped custab">
       <thead>
-
         <%= form_tag deliveries_path, method: :get  do %>
-        <%= text_field_tag 'search_item', params[:search_item], placeholder: "Enter Delivery" %>
+        <%= text_field_tag 'search_item', params[:search_item], placeholder: "product name" %>
         <%= submit_tag 'Search' %>
         <%end%>
         <%= link_to  new_delivery_path, :class =>"btn btn-primary btn-xs pull-right" do%>
-        <b>+</b> NEW DELIVERY
+        <b>+</b> NEW GOODS
         <%end%>
         <%= link_to "Back", :back , :class =>"btn btn-primary btn-xs pull-right"%>
         <tr>
           <th>S/N</th>
-          <th >NAME</th>
-          <th>QUANTITY</th>
-          <th>WEIGHT</th>
+          <th >SUPPLIER</th>
+          <th>RECEIPIENT</th>
+          <th>INVENTORY NO</th>          
+          <th >PRODUCT </th>
+          <th>DESCRIPTION</th>
+          <th>QUANTITY</th>         
+          <th >BATCH NO </th>
+          <th>ARRIVAL DATE</th>
+          <th>MANUFACTURE DATE</th>
+          <th >EXPIRY DATE </th>
+          <th>REMARK</th>
           <th class="text-center" colspan="2">Action</th>
         </tr>
       </thead>
       <% @deliveries.each do |delivery| %>
       <tr>
         <td><%= delivery.id %></td>
-        <td><%= delivery.name.upcase %></td>
+        <td><%= delivery.supplier_name %></td>
+        <td><%= delivery.receipient %></td>
+        <td><%= delivery.inventory_no %></td>
+        <td><%= delivery.product_name %></td>
+        <td><%= delivery.description %></td>
         <td><%= delivery.quantity %></td>
-        <td><%= delivery.weight %></td>
+        <td><%= delivery.batch_no %></td>
+        <td><%= delivery.arrival_date %></td>
+        <td><%= delivery.manufacture_date %></td>
+        <td><%= delivery.expiry_date %></td>
+        <td><%= delivery.remark %></td>
         
         <td class="text-center">  
           <%= link_to  edit_delivery_path(delivery), :class => "btn btn-danger btn-xs" do%>

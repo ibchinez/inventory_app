@@ -1,45 +1,55 @@
-<% provide(:title, 'Edit Supply')%>
+<% provide(:title, 'Outward Goods')%>
 <%= render "/admin_navbar" %>
-<p id="notice"><%= notice %></p>
 
-<h1 style="text-align: center;">Supplies</h1>
+<h1 style="text-align: center;">Outward Goods</h1>
 
-
-
-<div class="container">
-  <div class="row col-md-8 col-md-offset-2 custyle">
+<div class="container-fluid">
+  <div class="row col-md-12  custyle">
+    <p id="notice" style = "text-transform: uppercase; font-weight: bolder;"><%= notice %></p>
     <table class="table table-bordered table-striped custab">
       <thead>
         <%= form_tag supplies_path, method: :get  do %>
-        <%= text_field_tag 'search_item', params[:search_item], placeholder: "Enter Supply" %>
+        <%= text_field_tag 'search_item', params[:search_item], placeholder: "search goods" %>
         <%= submit_tag 'Search' %>
         <% end%>
         <% if current_user.has_role? :admin %>
           <div>
         <%= link_to  new_supply_path, :class =>"btn btn-primary btn-xs pull-right" do%>
-        <b>+</b> NEW SUPPLY
+        <b>+</b> ADD GOODS
         <%end%>
         <%end%>        
         <%= link_to "Back", :back , :class =>"btn btn-primary btn-xs pull-right"%>
         </div>
         <tr>
           <th>S/N</th>
-          <th >NAME</th>
+          <th >CUSTOMER NAME</th>
           <th>QUANTITY</th>
-          <th>WEIGHT</th>
-          <th>PRICE PER ITEM</th>
-          <th>TOTAL</th>
-          <th class="text-center" colspan="2">Action</th>
+          <th>DECSRIPTION</th>
+          <th>PACK SIZE</th>
+          <th>PRICE PER UNIT(#)</th>
+          <th>BATCH NO</th>
+          <th>PURCHASED</th>
+          <th>MANUFACTURED</th>
+          <th>EXPIRES</th>
+          <th>TOTAL(#)</th>
+          <th>REMARK</th>
+          <th class="text-center" colspan="2">ACTION</th>
         </tr>
       </thead>
       <% @supplies.each do |supply| %>
       <tr>
         <td><%= supply.id %></td>
-        <td><%= supply.name %></td>
+        <td><%= supply.customer_name.upcase %></td>
         <td><%= supply.quantity %></td>
-        <td><%= supply.weight %></td>
-        <td><%= supply.amount %></td>
-        <td>#1000</td>
+        <td><%= supply.description %></td>
+        <td><%= supply.pack_size %></td>
+        <td><%= supply.price_per_unit %></td>
+        <td><%= supply.batch_no %></td>
+        <td><%= supply.purchase_date %></td>
+        <td><%= supply.manufacture_date %></td>
+        <td><%= supply.expiry_date %></td>
+        <td><%= ((supply.price_per_unit.to_f) * (supply.quantity.to_f)) %></td>
+        <td><%= supply.remark %></td>
         
         <td class="text-center">  
           <%= link_to  edit_supply_path(supply), :class => "btn btn-danger btn-xs" do%>

@@ -1,0 +1,57 @@
+<% provide(:title, 'Stocks')%>
+<%= render "/admin_navbar" %>
+
+<h1 style="text-align: center;"> GOODS IN STOCK</h1>
+<div class="container-fluid">
+  <div class="row col-md-12  custyle">
+    <p id="notice" style = "text-transform: uppercase; font-weight: bolder;"><%= notice %></p>
+    <table class="table table-bordered table-striped custab">
+      <thead>
+        <%= form_tag stocks_path, method: :get  do %>
+        <%= text_field_tag 'search_item', params[:search_item], placeholder: "product name" %>
+        <%= submit_tag 'Search' %>
+        <%end%>
+        <%= link_to  new_stock_path, :class =>"btn btn-primary btn-xs pull-right" do%>
+        <b>+</b> NEW STOCK
+        <%end%>
+        <%= link_to "Back", :back , :class =>"btn btn-primary btn-xs pull-right"%>
+        <tr>
+          <th>S/N</th>
+          <th >PRODUCT</th>
+          <th>QUANTITY</th>         
+          <th >BATCH NO </th>
+          <th>MANUFACTURE DATE</th>
+          <th >EXPIRY DATE </th>
+          <th>REMARK</th>
+          <th class="text-center" colspan="2">Action</th>
+        </tr>
+      </thead>
+      <% @stocks.each do |stock| %>
+      <tr>
+        <td><%= stock.id %></td>
+        <td><%= stock.product %></td>
+        <td><%= stock.quantity %></td>
+        <td><%= stock.batch_no %></td>
+        <td><%= stock.manufacture_date %></td>
+        <td><%= stock.expiry_date %></td>
+        <td><%= stock.remark %></td>
+        
+        <td class="text-center">  
+          <%= link_to  edit_stock_path(stock), :class => "btn btn-danger btn-xs" do%>
+          <i class="glyphicon glyphicon-edit"> EDIT</i>
+          <%end%>
+        </td>
+        <td class="text-center">  
+          <%= link_to  stock, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-xs" do%>
+          <i class="glyphicon glyphicon-trash"> DELETE</i>
+          <%end%>
+        </td>
+      </tr>
+      <%end%>
+    </table>
+    
+  <div class="digg_pagination">
+    <%= will_paginate @stocks, renderer: BootstrapPagination::Rails %>
+  </div>
+  </div> 
+</div>

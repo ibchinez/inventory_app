@@ -10,19 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180712212340) do
+ActiveRecord::Schema.define(version: 20180714230630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "deliveries", force: :cascade do |t|
-    t.string "name"
+    t.string "supplier_name"
     t.string "quantity"
-    t.string "weight"
+    t.string "description"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
+    t.string "inventory_no"
+    t.string "product_name"
+    t.date "manufacture_date"
+    t.date "expiry_date"
+    t.date "arrival_date"
+    t.string "remark"
+    t.string "batch_no"
+    t.string "receipient"
     t.index ["user_id"], name: "index_deliveries_on_user_id"
   end
 
@@ -80,15 +88,35 @@ ActiveRecord::Schema.define(version: 20180712212340) do
     t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
   end
 
-  create_table "supplies", force: :cascade do |t|
-    t.string "name"
+  create_table "stocks", force: :cascade do |t|
+    t.string "product"
+    t.string "batch_no"
+    t.date "manufacture_date"
+    t.date "expiry_date"
     t.string "quantity"
-    t.string "weight"
-    t.string "amount"
+    t.string "remark"
+    t.string "slug"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_stocks_on_user_id"
+  end
+
+  create_table "supplies", force: :cascade do |t|
+    t.string "customer_name"
+    t.string "quantity"
+    t.string "description"
+    t.string "price_per_unit"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
+    t.string "pack_size"
+    t.string "batch_no"
+    t.date "manufacture_date"
+    t.date "expiry_date"
+    t.date "purchase_date"
+    t.string "remark"
     t.index ["user_id"], name: "index_supplies_on_user_id"
   end
 
@@ -139,5 +167,6 @@ ActiveRecord::Schema.define(version: 20180712212340) do
 
   add_foreign_key "deliveries", "users"
   add_foreign_key "posts", "users"
+  add_foreign_key "stocks", "users"
   add_foreign_key "supplies", "users"
 end

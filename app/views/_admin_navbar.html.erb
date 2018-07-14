@@ -1,5 +1,5 @@
 
-<div class="container example2">
+<div class="container-fluid example2">
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -22,11 +22,12 @@
       </div>
       <div id="navbar2" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "SUPPLIES" , supplies_path %></li>
+          <li><%= link_to "IN STOCKS" , stocks_path%></li>
+          <li><%= link_to "INWARD GOODS" , deliveries_path%></li>
+          <li><%= link_to "OUTWARD GOODS" , supplies_path %></li>
           <% if current_user.has_role? :admin %>
           <li><%= link_to "EDIT POSTS" , post_path(1) %></li>
           <%end%>
-          <li><%= link_to "DELIVERIES" , deliveries_path%></li>
           <li><%= link_to "EDIT ACCOUNT" , edit_user_registration_path%></li>
           <li>
             <%= link_to  destroy_user_session_path, method: :delete  do %>
