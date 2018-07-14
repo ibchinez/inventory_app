@@ -50,7 +50,7 @@ meta og:
             </div>
             <div class="banner-text text-center">
               <h1 class="white"><%= @post.landing_title.html_safe %></h1>
-              <p><%= @post.landing_text.html_safe %> </p>
+              <p><%= @post.landing_text %> </p>
               <a href="#contact" class="btn btn-appoint">Get in touch</a>
             </div>
             <div class="overlay-detail text-center">
@@ -69,7 +69,7 @@ meta og:
         <div class="col-md-4 col-sm-4">
           <h2 class="ser-title">Our Service</h2>
           <hr class="botm-line">
-          <p><%= @post.service_text_string.html_safe %></p>
+          <p><%= @post.service_text_string %></p>
         </div>
         <div class="col-md-4 col-sm-4">
           <div class="service-info">
