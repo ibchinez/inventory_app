@@ -10,15 +10,16 @@ Rails.application.routes.draw do
   root 'homes#index'
   resources :supplies, path: 'outwards'
   resources :deliveries, path: 'inwards'
-  devise_for :users, path: '', 
 
+
+  as :user do
+    get 'dashboard', :to => 'dashboards#index', :as => :user_root # Rails 3
+  end
+
+
+  devise_for :users, path: '', 
   path_names:{
     sign_in: 'admin', sign_out: 'logout'    
-  },
-
-  controllers:{
-  	#invitations: "invitations",
-    registrations: "registrations"
   }
 
     get 'admin', to: 'devise/sessions#new'
