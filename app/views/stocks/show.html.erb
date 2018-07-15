@@ -1,44 +1,35 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>String:</strong>
-  <%= @stock.string %>
+  <strong>Product:</strong>
+  <%= @stock.product %>
 </p>
 
 <p>
-  <strong>String:</strong>
-  <%= @stock.string %>
+  <strong>Batch No:</strong>
+  <%= @stock.batch_no %>
 </p>
 
 <p>
-  <strong>Date:</strong>
-  <%= @stock.date %>
+  <strong>Quantity</strong>
+  <%= @stock.quantity %>
 </p>
 
 <p>
-  <strong>Date:</strong>
-  <%= @stock.date %>
+  <strong>Manufacture Date</strong>
+  <%= @stock.manufacture_date %>
 </p>
 
 <p>
-  <strong>String:</strong>
-  <%= @stock.string %>
+  <strong>Expiry date</strong>
+  <%= @stock.expiry_date %>
 </p>
 
 <p>
-  <strong>String:</strong>
-  <%= @stock.string %>
+  <strong>Remark</strong>
+  <%= @stock.remark %>
 </p>
 
-<p>
-  <strong>String:</strong>
-  <%= @stock.string %>
-</p>
-
-<p>
-  <strong>References:</strong>
-  <%= @stock.references %>
-</p>
 
 <%= link_to 'Edit', edit_stock_path(@stock) %> |
 <%= link_to 'Back', stocks_path %>
