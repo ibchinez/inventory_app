@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   },
 
   controllers:{
-  	invitations: "invitations",
+  	#invitations: "invitations",
     registrations: "registrations"
   }
 

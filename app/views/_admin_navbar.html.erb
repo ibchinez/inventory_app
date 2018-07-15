@@ -26,7 +26,7 @@
           <li><%= link_to "INWARD GOODS" , deliveries_path%></li>
           <li><%= link_to "OUTWARD GOODS" , supplies_path %></li>
           <% if current_user.has_role? :admin %>
-          <li><%= link_to "EDIT POSTS" , post_path(1) %></li>
+          <li><%= link_to "POSTS" , post_path(1) %></li>
           <%end%>
           <li><%= link_to "EDIT ACCOUNT" , edit_user_registration_path%></li>
           <li>

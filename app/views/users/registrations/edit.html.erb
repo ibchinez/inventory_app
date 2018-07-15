@@ -46,6 +46,6 @@
 <div class="remove">
 <h3>Remove Account</h3>
 
-<p class="remove-p"> <%= link_to "Click to Cancel Account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-<%= link_to "Back", :back %>
+<p class="remove-p"> <%= link_to "Click to Delete Account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<%= link_to "Back", dashboards_index_path %>
 </div>

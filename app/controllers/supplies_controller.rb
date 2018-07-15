@@ -31,7 +31,7 @@ class SuppliesController < ApplicationController
   # POST /supplies
   # POST /supplies.json
   def create
-    @supply = current_user.supplies.new(supply_params)
+    @supply = Supply.new(supply_params)
 
     respond_to do |format|
       if @supply.save

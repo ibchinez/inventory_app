@@ -1,3 +1,7 @@
+<div class="container">
+<% if User.all.count  == 3 %>
+<h1>SORRY ! NO REGISTRATION AT THIS TIME </h1>
+<%else%>
 <h2>Sign up</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -13,3 +17,5 @@
   </div>
 <% end %>
 <%= render "users/shared/links" %>
+<%end%>
+</div>

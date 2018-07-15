@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   # extend FriendlyId
   # friendly_id :name, use: :slugged
 
-  belongs_to :user
+  #belongs_to :user
   resourcify
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

@@ -31,7 +31,7 @@ class StocksController < ApplicationController
   # POST /stocks.json
   def create
 
-    @stock = current_user.stocks.new(stock_params)
+    @stock = Stock.new(stock_params)
 
     respond_to do |format|
       if @stock.save

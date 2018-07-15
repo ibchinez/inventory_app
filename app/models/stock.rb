@@ -13,7 +13,7 @@ extend FriendlyId
 friendly_id :product, use: :slugged
 
 
-belongs_to :user
+#belongs_to :user
 resourcify
 
   validates :quantity, presence:true, numericality:true

@@ -14,7 +14,7 @@ extend FriendlyId
 friendly_id :product_name, use: :slugged
 
 
-belongs_to :user
+#belongs_to :user
 resourcify
 
 validates :supplier_name, presence:true

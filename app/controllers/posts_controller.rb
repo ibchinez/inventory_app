@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-
+   load_and_authorize_resource
   # GET /posts
   # GET /posts.json
   def index
@@ -25,8 +25,7 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @user = current_user
-    @post = @user.posts.new(post_params)
+    @post = Post.new(post_params)
     #@post = Post.new(post_params)
 
     respond_to do |format|
