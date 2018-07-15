@@ -16,7 +16,7 @@ friendly_id :product, use: :slugged
 #belongs_to :user
 resourcify
 
-  validates :quantity, presence:true, numericality:true
+  validates :quantity, presence:true
   validates :product, presence:true
   validates :batch_no, presence:true
   validates :expiry_date, presence:true

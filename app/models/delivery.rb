@@ -18,7 +18,7 @@ friendly_id :product_name, use: :slugged
 resourcify
 
 validates :supplier_name, presence:true
-validates :quantity, presence:true, numericality:true
+validates :quantity, presence:true
 validates :description, presence:true
 validates :inventory_no, presence:true
 validates :receipient, presence:true
