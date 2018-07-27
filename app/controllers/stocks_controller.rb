@@ -1,7 +1,7 @@
 class StocksController < ApplicationController
   before_action :set_stock, only: [:show, :edit, :update, :destroy]
-   before_action :authenticate_user!
-  load_and_authorize_resource
+   #before_action :authenticate_user!
+  #load_and_authorize_resource
 
   # GET /stocks
   # GET /stocks.json
@@ -9,7 +9,7 @@ class StocksController < ApplicationController
     if params[:search_item]
       @stocks = Stock.search_by_title(params[:search_item]).paginate(:page => params[:page]).per_page(10)
     else
-      @stocks =  Stock.paginate(:page => params[:page]).per_page(10) 
+      @stocks =  Stock.order("id DESC").paginate(:page => params[:page]).per_page(10) 
     end
   end
 

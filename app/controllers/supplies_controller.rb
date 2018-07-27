@@ -9,7 +9,7 @@ class SuppliesController < ApplicationController
     if params[:search_item]
       @supplies = Supply.search_by_title(params[:search_item]).paginate(:page => params[:page]).per_page(10)
     else
-      @supplies =  Supply.paginate(:page => params[:page]).per_page(10) 
+      @supplies =  Supply.order("id DESC").paginate(:page => params[:page]).per_page(10) 
     end
   end
 
@@ -35,7 +35,7 @@ class SuppliesController < ApplicationController
 
     respond_to do |format|
       if @supply.save
-        format.html { redirect_to dashboards_index_path, notice: 'Goods was successfully created.' }
+        format.html { redirect_to supplies_path, notice: 'Goods was successfully created.' }
         format.json { render :show, status: :created, location: @supply }
       else
         format.html { render :new }

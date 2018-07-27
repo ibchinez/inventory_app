@@ -22,9 +22,9 @@ class Supply < ApplicationRecord
 	validates :description, presence:true
 	validates :price_per_unit, presence:true
   validates :batch_no, presence:true
-  validates :purchase_date, presence:true
-  validates :expiry_date, presence:true
-  validates :manufacture_date, presence:true
+ # validates :purchase_date, presence:true
+  #validates :expiry_date, presence:true
+  #validates :manufacture_date, presence:true
   validates :remark, presence:true
   validates :pack_size, presence:true
 end

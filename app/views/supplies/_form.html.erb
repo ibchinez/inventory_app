@@ -9,9 +9,9 @@
     <%= f.input :price_per_unit %>
     <%= f.input :quantity %>
     <%= f.input :description %>
-    <%= f.input :manufacture_date %>
-    <%= f.input :expiry_date %>
-    <%= f.input :purchase_date %>
+    <%= f.input :manufacture_date, as: :date, html5: true %>
+    <%= f.input :expiry_date , as: :date, html5: true%>
+    <%= f.input :purchase_date , as: :date, html5: true%>
     <%= f.input :remark %>
   </div>
 

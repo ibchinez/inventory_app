@@ -9,13 +9,12 @@
      <%= f.input :description %>
     <%= f.input :quantity %>
     <%= f.input :batch_no %>     
-    <%= f.input :manufacture_date %>
-     <%= f.input :expiry_date %>
-    <%= f.input :arrival_date %>
+    <%= f.input :manufacture_date, as: :date, html5: true %>
+     <%= f.input :expiry_date , as: :date, html5: true %>
+    <%= f.input :arrival_date , as: :date, html5: true %>
     <%= f.input :receipient %>
   	<%= f.input :remark %>
   </div>
-
   <div class="form-actions">
      <%= f.button :submit, "SUBMIT" ,class: "btn btn-primary" %>
   </div>

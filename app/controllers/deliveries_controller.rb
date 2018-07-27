@@ -9,7 +9,7 @@ class DeliveriesController < ApplicationController
     if params[:search_item]
       @deliveries = Delivery.search_by_title(params[:search_item]).paginate(:page => params[:page]).per_page(10)
     else
-      @deliveries =  Delivery.paginate(:page => params[:page]).per_page(10) 
+      @deliveries =  Delivery.order("id DESC").paginate(:page => params[:page]).per_page(10) 
     end
   end
 
